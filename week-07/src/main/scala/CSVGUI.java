@@ -8,7 +8,8 @@ import java.awt.event.ActionListener;
 
 public class CSVGUI {
     private JPanel mainPanel;
-    private JTable lecturerTable;
+
+    private JTable BookTable;
     private JScrollPane scrollPane;
     private JButton loadButton;
 
@@ -20,20 +21,20 @@ public class CSVGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                var result = csv_persistence.getLecturers(pathEntryField.getText());
-                List<Lecturer> lecturerList =
-                        csv_persistence.getLecturers(pathEntryField.getText());
-                System.out.println(lecturerList);
-                for (int i = lecturerList.length() - 1; i >= 0; i--) {
+                List<Book> BookList =
+                        csv_persistence.getBooks(pathEntryField.getText());
+                System.out.println(BookList);
+                for (int i = BookList.length() - 1; i >= 0; i--) {
                     Object[] par = new Object[] {
-                            lecturerList.apply(i).id(),
-                            lecturerList.apply(i).name(),
-                            lecturerList.apply(i).age(),
-                            lecturerList.apply(i).module(),
-                            lecturerList.apply(i).status(),
-                            lecturerList.apply(i).wage(),
-                            lecturerList.apply(i).gender()
+                            BookList.apply(i).id(),
+                            BookList.apply(i).booktitle(),
+                            BookList.apply(i).author(),
+                            BookList.apply(i).year(),
+                            BookList.apply(i).publish(),
+                            BookList.apply(i).genre()
+
                     };
-                    ((DefaultTableModel) lecturerTable.getModel()).addRow(par);
+                    ((DefaultTableModel) BookTable.getModel()).addRow(par);
                 }
             }
         });
@@ -41,9 +42,9 @@ public class CSVGUI {
 
 
     private void createUIComponents() {
-        Object[] cols = {"id", "name", "age", "module", "status", "wage", "gender"};
-        lecturerTable = new JTable(new DefaultTableModel(cols, 0));
-        scrollPane = new JScrollPane(lecturerTable);
+        Object[] cols = {"id", "title", "author" ,"year", "publish", "subject", };
+        BookTable = new JTable(new DefaultTableModel(cols, 0));
+        scrollPane = new JScrollPane(BookTable);
 
     }
 
