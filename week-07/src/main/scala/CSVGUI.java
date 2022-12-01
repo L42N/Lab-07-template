@@ -14,6 +14,15 @@ public class CSVGUI {
     private JButton loadButton;
 
     private JTextField pathEntryField;
+    private JTextField searchField;
+    private JButton searchButton;
+    private JButton sortButton;
+    private JButton addNewEntryButton;
+    private JRadioButton bookRadioButton;
+    private JRadioButton authorRadioButton;
+    private JRadioButton publisherRadioButton;
+    private JButton editButton;
+    private JComboBox comboBox1;
 
     public CSVGUI() {
 
@@ -42,7 +51,7 @@ public class CSVGUI {
 
 
     private void createUIComponents() {
-        Object[] cols = {"id", "title", "author" ,"year", "publish", "subject", };
+        Object[] cols = {"ID", "Title", "Author" ,"Year", "Publisher", "Subject", };
         BookTable = new JTable(new DefaultTableModel(cols, 0));
         scrollPane = new JScrollPane(BookTable);
 

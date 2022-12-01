@@ -12,6 +12,7 @@ object csv_persistence {
     import scala.io.Source
     Source.fromFile(path).getLines().foreach(line => {
       val words = line.split(",")
+
       ddbb = Map(
         "id" -> words(0),
         "booktitle" -> words(1),
